@@ -1,0 +1,18 @@
+class Livre:
+    def __init__(self, titre, auteur, isbn, date_ajout=None):
+        self.titre = titre
+        self.auteur = auteur
+        self.isbn = isbn
+        self.date_ajout = date_ajout or datetime.now()
+        self.disponible = True
+        self.nb_emprunts = 0
+
+    def afficher_info(self):
+        print(f"{self.titre} — {self.auteur} (ISBN: {self.isbn}) | Disponible: {self.disponible}")
+
+    def emprunter(self):
+        self.disponible = False
+        self.nb_emprunts += 1
+
+    def retourner(self):
+        self.disponible = True
